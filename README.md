@@ -7,8 +7,6 @@ This project compares multinomial logistic regression (LR) and random forest (RF
 
 The final configuration uses **3-second windows, no overlap and 40 accelerometer/gyroscope features**. Both primary models correctly classify all 117 windows from 13 reserved own recordings. Across the three other pool participants, performance is much weaker: equal-person mean minimum-cost accuracy is 45.60% for LR and 44.51% for RF. Their costs are 1696.83 and 1541.80 assignment units per 1000 windows. Neither result establishes clinical readiness.
 
-**Repository URL:** replace `[ADD GITHUB REPOSITORY URL]` in the editable paper, then export its final PDF before submission.
-
 ## Files and data availability
 
 | Path                                              | Purpose                                                                                            |
@@ -26,7 +24,7 @@ The final configuration uses **3-second windows, no overlap and 40 accelerometer
 | `reproduction/paper_assets_provenance.json`       | Records whether each support-script input came from fresh artifact CSVs or saved notebook displays |
 | `requirements.txt`                                | Notebook-reported dependency versions and the additional interactive/plotting tools                |
 
-The support package contains the author's raw recordings and the final notebook. **Classmates' raw files and the complete pool artifacts are not included in this package.** Obtain the actual pool from the module's Moodle source. Saved results document the reported run but do not replace a full rerun on those raw files.&#x20;
+The support package contains the author's raw recordings and the final notebook. **Classmates' raw files and the complete pool artifacts are not included in this package.** Obtain the actual pool from the module's Moodle source. Saved results document the reported run but do not replace a full rerun on those raw files.
 
 Keep each individual phyphox export compressed as its original ZIP. Extract an outer collection archive so the individual recording ZIPs are discoverable. Supported arrangements include `data/pool/S02/S02_UP_01.zip` and `data/pool/S02_UP_01.zip`. Participant prefixes are required; a folder name alone is not used by `parse_name()` as an identity label. The notebook's preparation cells add a folder's prefix to recognised unprefixed filenames after checking for collisions. They rename files without changing their sensor contents.
 
@@ -46,8 +44,6 @@ The final notebook reports this execution environment:
 | joblib       | 1.5.3            |
 
 Visual Studio Code is supported: open the repository folder, select the corresponding Python kernel and open the notebook. The working directory must be the repository root because `data` and `artifacts` are relative paths.
-
-For local Jupyter/VS Code execution, leave `UPLOAD_OWN_ARCHIVE = False` and `UPLOAD_POOL_ARCHIVE = False`, and populate the data folders directly. The `upload_archives()` helper imports `google.colab` only when called; it is for Google Colab. Setting its upload flags to True locally will cause `ModuleNotFoundError`.
 
 ## Reproduce the complete experiment
 
@@ -110,7 +106,7 @@ These are equal-person averages, not averages weighted by each person's number o
 - Choose settings from development validation. Reserved own recordings and other participants remain evaluation data. Changes to a reported experiment require regenerating downstream predictions and figures.
 - Changing `CLEANING` or replacing raw files requires `clean_recording.cache_clear()` or a kernel restart, followed by rebuilding affected tables. The cache uses paths, so it does not automatically notice changed file contents.
 
-The final submitted notebook ends with the pool analysis; this snippet supplies the live prediction call. Without true labels, it reports predictions rather than accuracy or cost.&#x20;
+The final submitted notebook ends with the pool analysis; this snippet supplies the live prediction call. Without true labels, it reports predictions rather than accuracy or cost.
 
 ## AI use and attribution
 
